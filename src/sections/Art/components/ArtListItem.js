@@ -2,7 +2,7 @@ function ArtListItem({ title, artist, imageUrl, subjects }) {
   return (
     <li>
         <div className="frame">
-            <img src={imageUrl} />
+            <img src={imageUrl} alt={`Artwork by ${artist}`} />
         </div>
 
         <h3>{title}</h3>

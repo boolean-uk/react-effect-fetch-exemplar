@@ -9,15 +9,15 @@ function ArtsSection() {
 
   const getArtworks = async () => {
       const response = await fetch(API_URL)
-      const json = await response.json()
+      const { data, config } = await response.json()
 
-      if (!json.data) {
+      if (!data) {
           return
       }
 
-      const iiifUrl = json.config.iiif_url.replace('\\', '')
+      const iiifUrl = config.iiif_url.replace('\\', '')
 
-      const mappedArtworks = json.data.map(art => {
+      const mappedArtworks = data.map(art => {
           return {
               ...art,
               image_url: `${iiifUrl}/${art.image_id}${IMG_RESOURCE}`
