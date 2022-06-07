@@ -11,10 +11,6 @@ function ArtsSection() {
       const response = await fetch(API_URL)
       const { data, config } = await response.json()
 
-      if (!data) {
-          return
-      }
-
       const iiifUrl = config.iiif_url.replace('\\', '')
 
       const mappedArtworks = data.map(art => {
